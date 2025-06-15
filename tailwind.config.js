@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         'fond-sombre': '#172435',
-        'bloc-sombre': '#1E293B', // <-- COULEUR MANQUANTE AJOUTÉE
+        'bloc-sombre': '#1E293B', // <-- LA VOICI ! J'ai mis un gris-bleu foncé.
         'cyan-vif': '#00FFD2',
       },
     },
