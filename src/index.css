@@ -1,4 +1,74 @@
-/* src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Fichier de style de DÉMARRAGE pour MoteurQuestionnaire.tsx */
+body {
+  font-family: sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.moteur-questionnaire {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.moteur-questionnaire h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.question-block {
+  margin-bottom: 1.5rem;
+}
+
+.question-block label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Important pour que le padding n'augmente pas la largeur */
+}
+
+.radio-option, .checkbox-option {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}
+
+.radio-option:hover, .checkbox-option:hover {
+  background-color: #f4f7f6;
+}
+
+.radio-option label, .checkbox-option label {
+  font-weight: normal;
+  margin-left: 0.75rem;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #0056b3; /* Une couleur bleue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #003d82; /* Un bleu plus foncé */
+}

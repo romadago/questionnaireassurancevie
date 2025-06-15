@@ -1,4 +1,3 @@
-// La structure d'une seule question
 export interface Question {
   id: string;
   texte: string;
@@ -7,7 +6,6 @@ export interface Question {
   placeholder?: string;
 }
 
-// La structure d'un questionnaire complet
 export interface QuestionnaireConfig {
   id: string;
   titre: string;

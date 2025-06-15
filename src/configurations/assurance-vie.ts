@@ -1,14 +1,11 @@
-import { QuestionnaireConfig } from './types';
+import { QuestionnaireConfig } from './types.js';
 
 export const configAssuranceVie: QuestionnaireConfig = {
   id: 'assurance-vie',
   titre: 'Questionnaire Personnalisé Assurance-Vie',
-  // Important : on vise bien la table de test que vous avez configurée
-  stockageId: 'reponses_assurance_vie_TEST', 
+  stockageId: 'reponses_assurance_vie_TEST',
   questions: [
-    // --- METTEZ ICI TOUTES VOS QUESTIONS ACTUELLES ---
-    // Vous devez copier-coller vos vraies questions ici, en suivant cet exemple.
-    // Voici des exemples pour vous montrer la structure :
+    // --- ASSUREZ-VOUS DE METTRE VOS VRAIES QUESTIONS ICI ---
     {
       id: 'q1_situation',
       texte: 'Quelle est votre situation familiale ?',
