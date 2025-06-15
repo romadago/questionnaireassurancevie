@@ -1,6 +1,10 @@
-import React from 'react';
-import MoteurQuestionnaire from './MoteurQuestionnaire'; // <--- NOUVELLE LIGNE
-import { configAssuranceVie } from './configurations/assurance-vie'; // <--- NOUVELLE LIGNE
+// La ligne "import React from 'react';" n'est plus nécessaire avec les versions
+// récentes de React et Vite, la supprimer corrige une des petites erreurs de build.
+import MoteurQuestionnaire from './MoteurQuestionnaire';
+
+// Chemin d'import corrigé avec l'extension .js
+import { configAssuranceVie } from './configurations/assurance-vie.js';
+
 import './App.css';
 
 function App() {
@@ -10,7 +14,7 @@ function App() {
         <h1>Aeternia Patrimoine</h1>
       </header>
       <main>
-        <MoteurQuestionnaire config={configAssuranceVie} /> {/* <--- NOUVELLE LIGNE */}
+        <MoteurQuestionnaire config={configAssuranceVie} />
       </main>
     </div>
   );

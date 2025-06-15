@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import { QuestionnaireConfig, Question } from './configurations/types';
+
+// Chemin d'import corrigé avec l'extension .js
+import { QuestionnaireConfig, Question } from './configurations/types.js';
+
 // Vous aurez peut-être besoin d'importer un fichier CSS pour le style
 // import './MoteurQuestionnaire.css';
 
-// On définit la "forme" des props que notre composant attend.
 interface MoteurProps {
   config: QuestionnaireConfig;
 }
 
-// Notre composant "Moteur", prêt à fonctionner.
 const MoteurQuestionnaire: React.FC<MoteurProps> = ({ config }) => {
-
-  // On utilise un "état" (state) pour garder en mémoire les réponses de l'utilisateur.
-  // C'est un objet où la clé est l'ID de la question et la valeur est la réponse.
   const [reponses, setReponses] = useState<{ [key: string]: any }>({});
 
-  // Cette fonction est appelée chaque fois que l'utilisateur modifie une réponse.
   const handleInputChange = (questionId: string, valeur: any) => {
     setReponses(prevReponses => ({
       ...prevReponses,
@@ -23,18 +20,17 @@ const MoteurQuestionnaire: React.FC<MoteurProps> = ({ config }) => {
     }));
   };
   
-  // Cette fonction est appelée quand l'utilisateur clique sur le bouton "Valider".
   const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault(); // Empêche la page de se recharger
+    event.preventDefault();
     
     const dataToSend = {
-      formId: config.stockageId, // On utilise l'ID de stockage dynamique
+      formId: config.stockageId,
       reponses: reponses,
     };
     
     console.log("Données prêtes à être envoyées :", dataToSend);
     
-    // À DÉCOMMENTER ET ADAPTER : C'est ici que vous mettrez votre logique
+    // À ADAPTER : C'est ici que vous mettrez votre logique
     // pour envoyer les données à votre fonction Netlify.
     /*
     fetch('/.netlify/functions/votre-api', {
@@ -43,26 +39,20 @@ const MoteurQuestionnaire: React.FC<MoteurProps> = ({ config }) => {
       body: JSON.stringify(dataToSend),
     })
     .then(response => response.json())
-    .then(data => {
-      console.log('Succès:', data);
-      // Rediriger vers une page de remerciement, etc.
-    })
-    .catch((error) => {
-      console.error('Erreur:', error);
-    });
+    .then(data => console.log('Succès:', data))
+    .catch((error) => console.error('Erreur:', error));
     */
   };
 
-  // La partie "render" qui affiche le HTML (en JSX).
   return (
     <div className="moteur-questionnaire">
       <h2>{config.titre}</h2>
       <form onSubmit={handleSubmit}>
-        {config.questions.map((question) => (
+        {/* Type explicite ': Question' ajouté ici */}
+        {config.questions.map((question: Question) => (
           <div key={question.id} className="question-block">
             <label htmlFor={question.id}>{question.texte}</label>
             
-            {/* On affiche le bon type de champ en fonction de la configuration */}
             {question.type === 'texte_court' && (
               <input
                 type="text"
@@ -81,7 +71,8 @@ const MoteurQuestionnaire: React.FC<MoteurProps> = ({ config }) => {
               />
             )}
 
-            {question.type === 'choix_unique' && question.options?.map(option => (
+            {/* Type explicite ': string' ajouté ici */}
+            {question.type === 'choix_unique' && question.options?.map((option: string) => (
               <div key={option} className="radio-option">
                 <input
                   type="radio"
@@ -94,7 +85,8 @@ const MoteurQuestionnaire: React.FC<MoteurProps> = ({ config }) => {
               </div>
             ))}
             
-            {question.type === 'choix_multiple' && question.options?.map(option => (
+            {/* Type explicite ': string' ajouté ici */}
+            {question.type === 'choix_multiple' && question.options?.map((option: string) => (
                 <div key={option} className="checkbox-option">
                     <input
                         type="checkbox"
