@@ -1,11 +1,9 @@
-// La ligne "import React from 'react';" n'est plus nécessaire avec les versions
-// récentes de React et Vite, la supprimer corrige une des petites erreurs de build.
 import MoteurQuestionnaire from './MoteurQuestionnaire';
-
-// Chemin d'import corrigé avec l'extension .js
 import { configAssuranceVie } from './configurations/assurance-vie.js';
 
-import './App.css';
+// CHEMIN CORRIGÉ ICI 👇
+// J'ai remplacé './App.css' par './index.css' qui est le nom standard.
+import './index.css';
 
 function App() {
   return (
